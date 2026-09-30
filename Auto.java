@@ -13,7 +13,7 @@ public class Auto extends Vehiculo {
     
     @Override
     public void mostrarDatos() {
-        System.out.println("=== MOTO ===");
+        System.out.println("=== AUTO ===");
         System.out.println("Patente: " + patente);
         System.out.println("Marca: " + marca);
         System.out.println("Modelo: " + modelo);
