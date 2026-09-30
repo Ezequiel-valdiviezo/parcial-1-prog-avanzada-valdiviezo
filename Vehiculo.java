@@ -1,4 +1,4 @@
-public class Vehiculo {
+public abstract class Vehiculo {
     protected String patente;
     protected String marca;
     protected String modelo;
@@ -11,4 +11,9 @@ public class Vehiculo {
         this.horasPermanencia = horasPermanencia;
     }
 
+    public abstract int MostrarEspacioOcupado();
+    
+    public abstract void mostrarDatos();
+    
+    public abstract double calcularCosto(int horasPermanencia);
 }

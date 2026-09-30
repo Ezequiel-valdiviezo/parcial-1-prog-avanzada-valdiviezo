@@ -6,4 +6,26 @@ public class Moto extends Vehiculo {
         super(patente, marca, modelo, horasPermanencia);
     }
 
+    @Override
+    public int MostrarEspacioOcupado() {
+        return espacioOcupado;
+    }
+    
+    @Override
+    public void mostrarDatos() {
+        System.out.println("=== MOTO ===");
+        System.out.println("Patente: " + patente);
+        System.out.println("Marca: " + marca);
+        System.out.println("Modelo: " + modelo);
+        System.out.println("Horas de permanencia: " + horasPermanencia);
+        System.out.println("Espacio ocupado: " + espacioOcupado);
+        System.out.println("Tarifa por hora: $" + tarifaHora);
+        System.out.println("Costo total: $" + calcularCosto(horasPermanencia));
+    }
+    
+    @Override
+    public double calcularCosto(int horasPermanencia) {
+        return tarifaHora * horasPermanencia;
+    }
+
 }
