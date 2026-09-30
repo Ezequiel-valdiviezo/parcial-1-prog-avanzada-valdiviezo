@@ -6,9 +6,12 @@ public class Main {
 
         String opcionMenu = JOptionPane.showInputDialog("Ingrese que quiere hacer: " + "1 - Registrar ingreso ," + "2 - Registrar salida ," + "3 - Listar vehiculos ," + "4 - Estado del garage ,"  + "5 - Reportes ,"  + "6 - Salir.");
 
+        Garage garage = new Garage();
+        
         switch (opcionMenu) {
             case "1":
                 System.out.println("Registro ingreso");
+                garage.agregarVehiculo();
                 break;
             case "2":
                 System.out.println("Registro salida");
