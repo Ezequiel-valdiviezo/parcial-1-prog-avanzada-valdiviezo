@@ -48,32 +48,45 @@ public class Main {
 
 
     private static void registrarIngreso(Garage garage){
-        String tipoVehiculo = JOptionPane.showInputDialog("Ingrese el tipo de vehículo: " + "1 - Moto, " + "2 - Auto y " + "3 - Camion");
+    try {
+        int tipoVehiculo = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el tipo de vehículo: " + "1 - Moto, " + "2 - Auto y " + "3 - Camion"));
+        
+        if (tipoVehiculo != 1 && tipoVehiculo != 2 && tipoVehiculo != 3 ) {
+            throw new GarageException(
+                "Numero de tipo de vehiculo invalido."
+            );
+        } 
         String patente = JOptionPane.showInputDialog("Ingrese la patente del vehículo:");
         String marca = JOptionPane.showInputDialog("Ingrese la marca del vehículo:");
         String modelo = JOptionPane.showInputDialog("Ingrese el modelo del vehículo:");
         int horasPermanencia = Integer.parseInt(JOptionPane.showInputDialog("Ingrese las horas de permanencia del vehículo:"));
 
+        if (horasPermanencia < 0) {
+            throw new GarageException(
+                "Las horas de permamencia deben ser mayor a 0."
+            );
+        } 
+
         Vehiculo vehiculo = null;
 
-        switch (tipoVehiculo) {
-            case "1":
-                vehiculo = new Moto(patente, marca, modelo, horasPermanencia);
-            break;
-            case "2":
-                vehiculo = new Auto(patente, marca, modelo, horasPermanencia);
-            break;
-            case "3":
-                vehiculo = new Camion(patente, marca, modelo, horasPermanencia);
-            break;
-            default:
-                System.out.println("Tipo de vehículo inválido.");
-                System.exit(0);
-        }
-
-        try {
+            switch (tipoVehiculo) {
+                case 1:
+                    vehiculo = new Moto(patente, marca, modelo, horasPermanencia);
+                break;
+                case 2:
+                    vehiculo = new Auto(patente, marca, modelo, horasPermanencia);
+                break;
+                case 3:
+                    vehiculo = new Camion(patente, marca, modelo, horasPermanencia);
+                break;
+                default:
+                    System.err.println(
+                        "Opción de menú inválida."
+                    );
+            }
+        
             garage.agregarVehiculo(vehiculo);
-        } catch (GarageLlenoException e) {
+        } catch (GarageException e) {
             System.err.println(e.getMessage());
         }
     }

@@ -10,7 +10,7 @@ public class Garage {
         this.vehiculos = new ArrayList<>();
     }
 
-    public void agregarVehiculo(Vehiculo vehiculo) throws GarageLlenoException {
+    public void agregarVehiculo(Vehiculo vehiculo) throws GarageException {
         
         int espacioRestante = espacioLibre();
         
@@ -20,7 +20,7 @@ public class Garage {
             vehiculos.add(vehiculo);
             vehiculo.mostrarDatos();
         } else {
-            throw new GarageLlenoException(
+            throw new GarageException(
                 "No hay espacio suficiente para ingresar el vehículo."
             );
         }
