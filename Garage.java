@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JOptionPane;
 
 public class Garage {
-     public static final int capaciadadMaxima = 20;
+    private int capaciadadMaxima;
     private List<Vehiculo> vehiculos;
 
-    public Garage() {
+    public Garage(int capaciadadMaxima) {
+        this.capaciadadMaxima = capaciadadMaxima;
         this.vehiculos = new ArrayList<>();
     }
 

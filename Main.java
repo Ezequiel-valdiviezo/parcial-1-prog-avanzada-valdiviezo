@@ -2,11 +2,13 @@ import javax.swing.JOptionPane;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Iniciando sistema de estacionamiento de vehículos. Con un maximo de 20 espacios disponibles.");
-
+        int capacidad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la capacidad máxima del garage:"));
+        
+        System.out.println("Iniciando sistema de estacionamiento de vehículos. Con un maximo de " + capacidad + " espacios disponibles.");
+        
         String opcionMenu = JOptionPane.showInputDialog("Ingrese que quiere hacer: " + "1 - Registrar ingreso ," + "2 - Registrar salida ," + "3 - Listar vehiculos ," + "4 - Estado del garage ,"  + "5 - Reportes ,"  + "6 - Salir.");
 
-        Garage garage = new Garage();
+        Garage garage = new Garage(capacidad);
         
         switch (opcionMenu) {
             case "1":
