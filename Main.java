@@ -12,7 +12,7 @@ public class Main {
 
         do{
     
-        opcionMenu = JOptionPane.showInputDialog("Ingrese que quiere hacer: " + "1 - Registrar ingreso ," + "2 - Registrar salida ," + "3 - Listar vehiculos ," + "4 - Estado del garage ,"  + "5 - Reportes ,"  + "6 - Salir.");
+        opcionMenu = JOptionPane.showInputDialog("Ingrese que quiere hacer: " + "1 - Registrar ingreso , " + "2 - Registrar salida , " + "3 - Listar vehiculos , " + "4 - Estado del garage , "  + "5 - Reportes y "  + "6 - Salir.");
         
         switch (opcionMenu) {
             case "1":
@@ -47,7 +47,7 @@ public class Main {
 
 
     private static void registrarIngreso(Garage garage){
-        String tipoVehiculo = JOptionPane.showInputDialog("Ingrese el tipo de vehículo: " + "1 -    Moto" + "2 - Auto" + "3 - Camion");
+        String tipoVehiculo = JOptionPane.showInputDialog("Ingrese el tipo de vehículo: " + "1 - Moto, " + "2 - Auto y " + "3 - Camion");
         String patente = JOptionPane.showInputDialog("Ingrese la patente del vehículo:");
         String marca = JOptionPane.showInputDialog("Ingrese la marca del vehículo:");
         String modelo = JOptionPane.showInputDialog("Ingrese el modelo del vehículo:");
