@@ -6,9 +6,13 @@ public class Main {
         
         System.out.println("Iniciando sistema de estacionamiento de vehículos. Con un maximo de " + capacidad + " espacios disponibles.");
         
-        String opcionMenu = JOptionPane.showInputDialog("Ingrese que quiere hacer: " + "1 - Registrar ingreso ," + "2 - Registrar salida ," + "3 - Listar vehiculos ," + "4 - Estado del garage ,"  + "5 - Reportes ,"  + "6 - Salir.");
-
         Garage garage = new Garage(capacidad);
+        
+        String opcionMenu;
+
+        do{
+    
+        opcionMenu = JOptionPane.showInputDialog("Ingrese que quiere hacer: " + "1 - Registrar ingreso ," + "2 - Registrar salida ," + "3 - Listar vehiculos ," + "4 - Estado del garage ,"  + "5 - Reportes ,"  + "6 - Salir.");
         
         switch (opcionMenu) {
             case "1":
@@ -35,6 +39,7 @@ public class Main {
                 System.out.println("Tipo de vehículo inválido.");
                 System.exit(0);
         }
+        } while(!opcionMenu.equals("6"));
     }
 
 
