@@ -63,6 +63,7 @@ public class Garage {
 
         int espacioLibre = capaciadadMaxima - espacioOcupadoTotal;
 
+        System.err.println("Capacidad máxima: " + capaciadadMaxima);
         System.err.println("Espacio total ocupado: " + espacioOcupadoTotal);
         System.err.println("Espacio total libre: " + espacioLibre);
     }
