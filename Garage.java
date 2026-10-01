@@ -27,8 +27,14 @@ public class Garage {
         }
     }
 
-    public void listarVehiculos(Vehiculo vehiculo) {
-        //System.err.println(vehiculos);
+    public void listarVehiculos() {
+        if (vehiculos.isEmpty()) {
+            System.out.println("No hay vehículos estacionados.");
+        }
+
+        for (Vehiculo vehiculo : vehiculos) {
+            vehiculo.mostrarDatos();
+        }
     }
 
     public void calcularEspacioOcupado() {
