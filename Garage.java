@@ -54,6 +54,17 @@ public class Garage {
     }
 
     public void calcularEspacioOcupado() {
+
+        int espacioOcupadoTotal = 0;
+    
+        for (Vehiculo vehiculo : vehiculos){
+            espacioOcupadoTotal += vehiculo.MostrarEspacioOcupado();
+        }
+
+        int espacioLibre = capaciadadMaxima - espacioOcupadoTotal;
+
+        System.err.println("Espacio total ocupado: " + espacioOcupadoTotal);
+        System.err.println("Espacio total libre: " + espacioLibre);
     }
 
     public void calcularEspacioDisponible() {

@@ -29,6 +29,7 @@ public class Main {
                 break;
             case "4":
                 System.out.println("----------Estado del garage----------");
+                estadoGarage(garage);
                 break;
             case "5":
                 System.out.println("----------Reportes----------");
@@ -85,4 +86,7 @@ public class Main {
         garage.listarVehiculos();
     }
 
+    private static void estadoGarage(Garage garage){
+        garage.calcularEspacioOcupado();
+    }
 }
