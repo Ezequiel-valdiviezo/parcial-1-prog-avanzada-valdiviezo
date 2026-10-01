@@ -11,7 +11,28 @@ public class Garage {
     }
 
     public void agregarVehiculo(Vehiculo vehiculo) {
-        vehiculos.add(vehiculo);
+        int espacioRestante = espacioLibre();
+        
+        int espacioOcupadoVehiculo = 0;
+        espacioOcupadoVehiculo += vehiculo.MostrarEspacioOcupado();
+        if (espacioRestante >= espacioOcupadoVehiculo) {
+            vehiculos.add(vehiculo);
+            vehiculo.mostrarDatos();
+        } else {
+            System.err.println("No hay espacio suficiente");
+        }
+    }
+
+    public int espacioLibre(){
+        int espacioOcupadoTotal = 0;
+    
+        for (Vehiculo vehiculo : vehiculos){
+            espacioOcupadoTotal += vehiculo.MostrarEspacioOcupado();
+        }
+
+        int espacioLibre = capaciadadMaxima - espacioOcupadoTotal;
+
+        return espacioLibre;
     }
 
     public void sacarVehiculo(String patente) {
@@ -53,7 +74,7 @@ public class Garage {
         }
     }
 
-    public void calcularEspacioOcupado() {
+    public void mostrarEstadoGarage() {
 
         int espacioOcupadoTotal = 0;
     
@@ -66,12 +87,5 @@ public class Garage {
         System.err.println("Capacidad máxima: " + capaciadadMaxima);
         System.err.println("Espacio total ocupado: " + espacioOcupadoTotal);
         System.err.println("Espacio total libre: " + espacioLibre);
-    }
-
-    public void calcularEspacioDisponible() {
-    }
-
-    public void mostrarEstadoGarage() {
-        //System.err.println(vehiculos);
     }
 }

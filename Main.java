@@ -71,10 +71,6 @@ public class Main {
         }
 
         garage.agregarVehiculo(vehiculo);
-
-        if (vehiculo != null) {
-            vehiculo.mostrarDatos();
-        }
     }
 
     private static void registrarSalida(Garage garage){
@@ -87,6 +83,6 @@ public class Main {
     }
 
     private static void estadoGarage(Garage garage){
-        garage.calcularEspacioOcupado();
+        garage.mostrarEstadoGarage();
     }
 }
