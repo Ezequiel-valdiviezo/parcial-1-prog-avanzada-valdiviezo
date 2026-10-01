@@ -10,40 +10,8 @@ public class Garage {
         this.vehiculos = new ArrayList<>();
     }
 
-    public void agregarVehiculo() {
-        String tipoVehiculo = JOptionPane.showInputDialog("Ingrese el tipo de vehículo: " + "1 - Moto" + "2 - Auto" + "3 - Camion");
-        String patente = JOptionPane.showInputDialog("Ingrese la patente del vehículo:");
-        String marca = JOptionPane.showInputDialog("Ingrese la marca del vehículo:");
-        String modelo = JOptionPane.showInputDialog("Ingrese el modelo del vehículo:");
-        int horasPermanencia = Integer.parseInt(JOptionPane.showInputDialog("Ingrese las horas de permanencia del vehículo:"));
-
-        Vehiculo vehiculo = null;
-
-        switch (tipoVehiculo) {
-            case "1":
-                vehiculo = new Moto(patente, marca, modelo, horasPermanencia);
-            break;
-            case "2":
-                vehiculo = new Auto(patente, marca, modelo, horasPermanencia);
-            break;
-            case "3":
-                vehiculo = new Camion(patente, marca, modelo, horasPermanencia);
-            break;
-            default:
-                System.out.println("Tipo de vehículo inválido.");
-                System.exit(0);
-        }
-
-        try {
-            this.vehiculos.add(vehiculo);
-        } catch (Exception e) {
-            System.err.println("Error: " + e);
-        }
-
-        if (vehiculo != null) {
-            vehiculo.mostrarDatos();
-        }
-
+    public void agregarVehiculo(Vehiculo vehiculo) {
+        vehiculos.add(vehiculo);
     }
 
     public void sacarVehiculo(Vehiculo vehiculo) {
