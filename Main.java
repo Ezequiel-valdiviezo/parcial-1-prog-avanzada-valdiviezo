@@ -77,7 +77,8 @@ public class Main {
     }
 
     private static void registrarSalida(Garage garage){
-
+        String patente = JOptionPane.showInputDialog("Ingrese la patente del vehículo:");
+        garage.sacarVehiculo(patente);
     }
 
     private static void listarVehiculos (Garage garage){

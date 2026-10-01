@@ -14,8 +14,24 @@ public class Garage {
         vehiculos.add(vehiculo);
     }
 
-    public void sacarVehiculo(Vehiculo vehiculo) {
-        this.vehiculos.remove(vehiculo);
+    public void sacarVehiculo(String patente) {
+        Vehiculo vehiculoEncontrado = null;
+
+        for (Vehiculo vehiculo : vehiculos) {
+            if (vehiculo.getPatente().equalsIgnoreCase(patente)) {
+                vehiculoEncontrado = vehiculo;
+                break;
+            }
+        }
+
+        if (vehiculoEncontrado != null) {
+        vehiculos.remove(vehiculoEncontrado);
+
+        System.out.println("Vehículo retirado correctamente:");
+        vehiculoEncontrado.mostrarDatos();
+        } else {
+            System.out.println("No se encontró un vehículo con la patente " + patente);
+        }
     }
 
     public void buscarVehiculo(String patente) {
