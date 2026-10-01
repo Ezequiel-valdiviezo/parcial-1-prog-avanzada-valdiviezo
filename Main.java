@@ -71,7 +71,11 @@ public class Main {
                 System.exit(0);
         }
 
-        garage.agregarVehiculo(vehiculo);
+        try {
+            garage.agregarVehiculo(vehiculo);
+        } catch (GarageLlenoException e) {
+            System.err.println(e.getMessage());
+        }
     }
 
     private static void registrarSalida(Garage garage){
