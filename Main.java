@@ -16,27 +16,29 @@ public class Main {
         
         switch (opcionMenu) {
             case "1":
-                System.out.println("Registro ingreso");
+                System.out.println("----------Registro ingreso----------");
                 registrarIngreso(garage);
                 break;
             case "2":
-                System.out.println("Registro salida");
+                System.out.println("----------Registro salida----------");
+                registrarSalida(garage);
                 break;
             case "3":
-                System.out.println("Listar vehiculos");
+                System.out.println("----------Listar vehiculos----------");
+                listarVehiculos(garage);
                 break;
             case "4":
-                System.out.println("Estado del garage");
+                System.out.println("----------Estado del garage----------");
                 break;
             case "5":
-                System.out.println("Reportes");
+                System.out.println("----------Reportes----------");
             break;
             case "6":
-                System.out.println("Salir");
+                System.out.println("----------Salir----------");
                 System.exit(0);
                 break;
             default:
-                System.out.println("Tipo de vehículo inválido.");
+                System.out.println("----------Tipo de vehículo inválido.----------");
                 System.exit(0);
         }
         } while(!opcionMenu.equals("6"));
@@ -72,6 +74,14 @@ public class Main {
         if (vehiculo != null) {
             vehiculo.mostrarDatos();
         }
+    }
+
+    private static void registrarSalida(Garage garage){
+
+    }
+
+    private static void listarVehiculos (Garage garage){
+        garage.listarVehiculos();
     }
 
 }
