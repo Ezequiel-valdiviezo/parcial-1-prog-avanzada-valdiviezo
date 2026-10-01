@@ -16,4 +16,8 @@ public abstract class Vehiculo {
     public abstract void mostrarDatos();
     
     public abstract double calcularCosto(int horasPermanencia);
+
+    public String getPatente(){
+        return patente;
+    } 
 }

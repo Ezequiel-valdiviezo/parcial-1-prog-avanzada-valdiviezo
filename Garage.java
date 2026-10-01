@@ -15,11 +15,16 @@ public class Garage {
     }
 
     public void sacarVehiculo(Vehiculo vehiculo) {
-        // this.vehiculos.remove(vehiculo);
+        this.vehiculos.remove(vehiculo);
     }
 
-    public void buscarVehiculo(Vehiculo vehiculo) {
-        
+    public void buscarVehiculo(String patente) {
+        for (Vehiculo vehiculo : vehiculos) {
+
+            if (vehiculo.getPatente().equalsIgnoreCase(patente)) {
+                System.err.println(vehiculo);
+            }
+        }
     }
 
     public void listarVehiculos(Vehiculo vehiculo) {
