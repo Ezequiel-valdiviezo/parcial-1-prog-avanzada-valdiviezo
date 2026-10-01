@@ -28,4 +28,9 @@ public class Moto extends Vehiculo {
         return tarifaHora * horasPermanencia;
     }
 
+    @Override
+    public String getTipo() {
+        return "Moto";
+    }
+
 }

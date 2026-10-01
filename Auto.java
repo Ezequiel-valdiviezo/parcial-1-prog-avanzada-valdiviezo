@@ -28,4 +28,9 @@ public class Auto extends Vehiculo {
         return tarifaHora * horasPermanencia;
     }
 
+    @Override
+    public String getTipo() {
+        return "Auto";
+    }
+
 }

@@ -33,6 +33,7 @@ public class Main {
                 break;
             case "5":
                 System.out.println("----------Reportes----------");
+                reportesGarage(garage);
             break;
             case "6":
                 System.out.println("----------Salir----------");
@@ -84,5 +85,9 @@ public class Main {
 
     private static void estadoGarage(Garage garage){
         garage.mostrarEstadoGarage();
+    }
+
+    private static void reportesGarage(Garage garage){
+        garage.mostrarReportes();
     }
 }

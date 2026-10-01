@@ -27,4 +27,9 @@ public class Camion extends Vehiculo {
     public double calcularCosto(int horasPermanencia) {
         return tarifaHora * horasPermanencia;
     }
+
+    @Override
+    public String getTipo() {
+        return "Camion";
+    }
 }
