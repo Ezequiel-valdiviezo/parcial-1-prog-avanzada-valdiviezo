@@ -125,7 +125,9 @@ public class Main {
             }
         
             garage.agregarVehiculo(vehiculo, patente);
-        } catch (GarageException e) {
+        } catch (NumberFormatException e) {
+            System.err.println("Debe ingresar un número válido.");
+        }catch (GarageException e) {
             System.err.println(e.getMessage());
         }
     }
