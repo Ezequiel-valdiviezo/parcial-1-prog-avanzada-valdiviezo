@@ -40,8 +40,7 @@ public class Main {
                 System.exit(0);
                 break;
             default:
-                System.out.println("----------Tipo de vehículo inválido.----------");
-                System.exit(0);
+                System.out.println("----------Opcion de menú inválido.----------");
         }
         } while(!opcionMenu.equals("6"));
     }
@@ -58,7 +57,7 @@ public class Main {
         } 
         String patente = JOptionPane.showInputDialog("Ingrese la patente del vehículo:");
 
-        if (patente == "" || patente == null || patente.isEmpty()) {
+        if (patente == null || patente.isEmpty()) {
             throw new GarageException(
                 "La patente no puede estar vacía."
             );
@@ -66,7 +65,7 @@ public class Main {
         
         String marca = JOptionPane.showInputDialog("Ingrese la marca del vehículo:");
 
-        if (marca == "" || marca == null || marca.isEmpty()) {
+        if (marca == null || marca.isEmpty()) {
             throw new GarageException(
                 "La marca no puede estar vacía."
             );
@@ -74,7 +73,7 @@ public class Main {
 
         String modelo = JOptionPane.showInputDialog("Ingrese el modelo del vehículo:");
 
-        if (modelo == "" || modelo == null || modelo.isEmpty()) {
+        if (modelo == null || modelo.isEmpty()) {
             throw new GarageException(
                 "El modelo no puede estar vacío."
             );
@@ -82,7 +81,7 @@ public class Main {
 
         int horasPermanencia = Integer.parseInt(JOptionPane.showInputDialog("Ingrese las horas de permanencia del vehículo:"));
 
-        if (horasPermanencia < 0) {
+        if (horasPermanencia <= 0) {
             throw new GarageException(
                 "Las horas de permamencia deben ser mayor a 0."
             );
@@ -115,7 +114,7 @@ public class Main {
     private static void registrarSalida(Garage garage){
         try {
             String patente = JOptionPane.showInputDialog("Ingrese la patente del vehículo:");
-            if (patente == "" || patente == null || patente.isEmpty()) {
+            if (patente == null || patente.isEmpty()) {
             throw new GarageException(
                 "La patente no puede estar vacía."
             );
