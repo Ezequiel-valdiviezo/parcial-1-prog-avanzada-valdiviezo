@@ -85,7 +85,7 @@ public class Main {
                     );
             }
         
-            garage.agregarVehiculo(vehiculo);
+            garage.agregarVehiculo(vehiculo, patente);
         } catch (GarageException e) {
             System.err.println(e.getMessage());
         }

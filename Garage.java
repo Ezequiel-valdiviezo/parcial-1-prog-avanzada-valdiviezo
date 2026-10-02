@@ -10,7 +10,15 @@ public class Garage {
         this.vehiculos = new ArrayList<>();
     }
 
-    public void agregarVehiculo(Vehiculo vehiculo) throws GarageException {
+    public void agregarVehiculo(Vehiculo vehiculo, String patente) throws GarageException {
+
+        for (Vehiculo v : vehiculos) {
+            if (v.getPatente().equalsIgnoreCase(patente)) {
+                throw new GarageException(
+                    "Ya existe un vehículo con la patente " + patente + " en el garage."
+                );
+            }
+        }
         
         int espacioRestante = espacioLibre();
         
@@ -93,48 +101,48 @@ public class Garage {
     }
 
     public void mostrarReportes() {
-    int cantidadTotalVehiculos = 0;
-    int cantidadMotos = 0;
-    int cantidadAutos = 0;
-    int cantidadCamiones = 0;
+        int cantidadTotalVehiculos = 0;
+        int cantidadMotos = 0;
+        int cantidadAutos = 0;
+        int cantidadCamiones = 0;
 
-    int espacioOcupadoTotal = 0;
-    double recaudacionTotalEstimada = 0;
+        int espacioOcupadoTotal = 0;
+        double recaudacionTotalEstimada = 0;
 
-    for (Vehiculo vehiculo : vehiculos) {
+        for (Vehiculo vehiculo : vehiculos) {
 
-        cantidadTotalVehiculos++;
+            cantidadTotalVehiculos++;
 
-        espacioOcupadoTotal += vehiculo.MostrarEspacioOcupado();
+            espacioOcupadoTotal += vehiculo.MostrarEspacioOcupado();
 
-        recaudacionTotalEstimada += vehiculo.calcularCosto(
-            vehiculo.getHorasPermanencia()
-        );
+            recaudacionTotalEstimada += vehiculo.calcularCosto(
+                vehiculo.getHorasPermanencia()
+            );
 
-        switch (vehiculo.getTipo()) {
-            case "Moto":
-                cantidadMotos++;
-                break;
+            switch (vehiculo.getTipo()) {
+                case "Moto":
+                    cantidadMotos++;
+                    break;
 
-            case "Auto":
-                cantidadAutos++;
-                break;
+                case "Auto":
+                    cantidadAutos++;
+                    break;
 
-            case "Camion":
-                cantidadCamiones++;
-                break;
+                case "Camion":
+                    cantidadCamiones++;
+                    break;
+            }
         }
+
+        int espacioLibre = capaciadadMaxima - espacioOcupadoTotal;
+
+        System.out.println("Reportes:");
+        System.out.println("Cantidad total de vehículos: " + cantidadTotalVehiculos);
+        System.out.println("Cantidad de motos: " + cantidadMotos);
+        System.out.println("Cantidad de autos: " + cantidadAutos);
+        System.out.println("Cantidad de camiones: " + cantidadCamiones);
+        System.out.println("Espacio ocupado: " + espacioOcupadoTotal);
+        System.out.println("Espacio libre: " + espacioLibre);
+        System.out.println("Recaudación total estimada: $" + recaudacionTotalEstimada);
     }
-
-    int espacioLibre = capaciadadMaxima - espacioOcupadoTotal;
-
-    System.out.println("Reportes:");
-    System.out.println("Cantidad total de vehículos: " + cantidadTotalVehiculos);
-    System.out.println("Cantidad de motos: " + cantidadMotos);
-    System.out.println("Cantidad de autos: " + cantidadAutos);
-    System.out.println("Cantidad de camiones: " + cantidadCamiones);
-    System.out.println("Espacio ocupado: " + espacioOcupadoTotal);
-    System.out.println("Espacio libre: " + espacioLibre);
-    System.out.println("Recaudación total estimada: $" + recaudacionTotalEstimada);
-}
 }
