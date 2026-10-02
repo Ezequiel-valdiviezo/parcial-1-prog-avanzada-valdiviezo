@@ -2,7 +2,26 @@ import javax.swing.JOptionPane;
 
 public class Main {
     public static void main(String[] args) {
-        int capacidad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la capacidad máxima del garage:"));
+
+        int capacidad = 0;
+
+        while (capacidad <= 0) {
+            try {
+                capacidad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la capacidad máxima del garage:"));
+
+                if (capacidad <= 0) {
+                    throw new GarageException("La capacidad debe ser mayor a 0.");
+                }
+
+            } catch (NumberFormatException e) {
+                System.err.println("Debe ingresar un número válido.");
+
+            } catch (GarageException e) {
+                System.err.println(e.getMessage());
+            }
+        }
+
+        // int capacida d = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la capacidad máxima del garage:"));
         
         System.out.println("Iniciando sistema de estacionamiento de vehículos. Con un maximo de " + capacidad + " espacios disponibles.");
         
