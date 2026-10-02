@@ -79,7 +79,7 @@ public class Main {
                 "El modelo no puede estar vacío."
             );
         } 
-        
+
         int horasPermanencia = Integer.parseInt(JOptionPane.showInputDialog("Ingrese las horas de permanencia del vehículo:"));
 
         if (horasPermanencia < 0) {
@@ -115,6 +115,11 @@ public class Main {
     private static void registrarSalida(Garage garage){
         try {
             String patente = JOptionPane.showInputDialog("Ingrese la patente del vehículo:");
+            if (patente == "" || patente == null || patente.isEmpty()) {
+            throw new GarageException(
+                "La patente no puede estar vacía."
+            );
+        } 
             garage.sacarVehiculo(patente);
         } catch (GarageException e) {
             System.err.println(e.getMessage());
