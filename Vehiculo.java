@@ -1,4 +1,4 @@
-public abstract class Vehiculo {
+public abstract class Vehiculo implements Calculable, Mostrable {
     protected String patente;
     protected String marca;
     protected String modelo;
@@ -13,8 +13,10 @@ public abstract class Vehiculo {
 
     public abstract int MostrarEspacioOcupado();
     
+    @Override 
     public abstract void mostrarDatos();
     
+    @Override 
     public abstract double calcularCosto(int horasPermanencia);
 
     public abstract String getTipo();
