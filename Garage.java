@@ -46,13 +46,15 @@ public class Garage {
         return espacioLibre;
     }
 
-    public void sacarVehiculo(String patente) {
+    public void sacarVehiculo(String patente) throws GarageException {
         Vehiculo vehiculoEncontrado = null;
 
         for (Vehiculo vehiculo : vehiculos) {
             if (vehiculo.getPatente().equalsIgnoreCase(patente)) {
                 vehiculoEncontrado = vehiculo;
                 break;
+            } else {
+                System.err.println("No se encontró un vehículo con la patente " + patente);
             }
         }
 
@@ -71,6 +73,8 @@ public class Garage {
 
             if (vehiculo.getPatente().equalsIgnoreCase(patente)) {
                 System.err.println(vehiculo);
+            } else {
+                System.err.println("No se encontró un vehículo con la patente " + patente);
             }
         }
     }

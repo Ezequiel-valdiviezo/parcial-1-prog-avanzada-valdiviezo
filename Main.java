@@ -92,8 +92,12 @@ public class Main {
     }
 
     private static void registrarSalida(Garage garage){
-        String patente = JOptionPane.showInputDialog("Ingrese la patente del vehículo:");
-        garage.sacarVehiculo(patente);
+        try {
+            String patente = JOptionPane.showInputDialog("Ingrese la patente del vehículo:");
+            garage.sacarVehiculo(patente);
+        } catch (GarageException e) {
+            System.err.println(e.getMessage());
+        }
     }
 
     private static void listarVehiculos (Garage garage){
