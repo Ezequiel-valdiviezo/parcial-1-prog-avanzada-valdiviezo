@@ -57,8 +57,29 @@ public class Main {
             );
         } 
         String patente = JOptionPane.showInputDialog("Ingrese la patente del vehículo:");
+
+        if (patente == "" || patente == null || patente.isEmpty()) {
+            throw new GarageException(
+                "La patente no puede estar vacía."
+            );
+        } 
+        
         String marca = JOptionPane.showInputDialog("Ingrese la marca del vehículo:");
+
+        if (marca == "" || marca == null || marca.isEmpty()) {
+            throw new GarageException(
+                "La marca no puede estar vacía."
+            );
+        } 
+
         String modelo = JOptionPane.showInputDialog("Ingrese el modelo del vehículo:");
+
+        if (modelo == "" || modelo == null || modelo.isEmpty()) {
+            throw new GarageException(
+                "El modelo no puede estar vacío."
+            );
+        } 
+        
         int horasPermanencia = Integer.parseInt(JOptionPane.showInputDialog("Ingrese las horas de permanencia del vehículo:"));
 
         if (horasPermanencia < 0) {
