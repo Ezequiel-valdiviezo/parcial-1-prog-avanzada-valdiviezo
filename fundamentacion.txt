@@ -1,0 +1,68 @@
+FUNDAMENTACIÓN DE DECISIONES DE DISEÑO
+
+El sistema fue desarrollado aplicando los principios de Programación Orientada a Objetos, buscando separar las responsabilidades de cada clase y facilitar la organización del código.
+
+1. Separación entre interacción y lógica
+
+Se decidió mantener las interacciones con el usuario mediante JOptionPane.showInputDialog dentro de la clase Main.
+
+De esta manera, Main se encarga de solicitar los datos y administrar el menú interactivo, mientras que Garage concentra la lógica del sistema, como agregar y retirar vehículos, controlar el espacio disponible, buscar vehículos y generar reportes.
+
+Esta separación permite evitar que la lógica de negocio dependa directamente de la forma en la que se ingresan los datos.
+
+2. Clase abstracta Vehiculo
+
+Se creó una clase abstracta Vehiculo para representar los atributos y comportamientos comunes de todos los vehículos.
+
+En ella se encuentran los datos compartidos como patente, marca, modelo y horas estimadas de permanencia.
+
+Las clases Moto, Auto y Camion heredan de Vehiculo y definen su propio comportamiento según sus características.
+
+3. Herencia y polimorfismo
+
+Se utilizó herencia mediante las clases Moto, Auto y Camion.
+
+Cada una implementa de manera particular el cálculo del costo y el espacio ocupado. Esto permite utilizar objetos Vehiculo dentro
+del Garage sin tener que consultar constantemente qué tipo de vehículo se está procesando.
+
+De esta manera se aplica polimorfismo y se evita utilizar condiciones del tipo if para calcular costos según el tipo de vehículo.
+
+4. Uso de interfaces
+
+Se implementaron las interfaces Calculable y Mostrable.
+
+Calculable establece el comportamiento necesario para calcular el costo de permanencia de un vehículo.
+
+Mostrable establece el comportamiento necesario para mostrar la información de cada vehículo.
+
+Las interfaces permiten definir estos comportamientos de forma independiente de las implementaciones particulares de Moto, Auto
+y Camion.
+
+5. Uso de colecciones
+
+La clase Garage administra los vehículos estacionados mediante una colección de objetos Vehiculo.
+
+Esto permite agregar vehículos, eliminarlos, recorrerlos y realizar búsquedas por patente.
+
+El uso de Vehiculo como tipo de la colección permite almacenar Moto, Auto y Camion en una misma estructura gracias al polimorfismo.
+
+6. Validaciones y manejo de errores
+
+Se incorporaron validaciones para evitar datos incorrectos, como campos vacíos, horas menores o iguales a cero, tipos de vehículos
+inválidos, patentes duplicadas e ingresos cuando no existe espacio suficiente.
+
+Se utilizaron bloques try-catch para controlar errores durante la ejecución y evitar que una entrada incorrecta finalice el programa.
+
+También se utiliza NumberFormatException para controlar valores que deberían ser numéricos y una excepción personalizada GarageException
+para representar errores relacionados con las reglas del sistema.
+
+7. Clase Garage
+
+Garage fue diseñada como el núcleo de la lógica del sistema.
+
+Esta clase mantiene la capacidad máxima y la colección de vehículos, además de encargarse de las operaciones relacionadas con el estacionamiento.
+
+De esta forma, Main administra la interacción con el usuario y Garage administra las reglas y operaciones propias del negocio.
+
+Repositorio utilizado:
+https://github.com/Ezequiel-valdiviezo/parcial-1-prog-avanzada-valdiviezo
