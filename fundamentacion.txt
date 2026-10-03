@@ -22,8 +22,7 @@ Las clases Moto, Auto y Camion heredan de Vehiculo y definen su propio comportam
 
 Se utilizó herencia mediante las clases Moto, Auto y Camion.
 
-Cada una implementa de manera particular el cálculo del costo y el espacio ocupado. Esto permite utilizar objetos Vehiculo dentro
-del Garage sin tener que consultar constantemente qué tipo de vehículo se está procesando.
+Cada una implementa de manera particular el cálculo del costo y el espacio ocupado. Esto permite utilizar objetos Vehiculo dentro del Garage sin tener que consultar constantemente qué tipo de vehículo se está procesando.
 
 De esta manera se aplica polimorfismo y se evita utilizar condiciones del tipo if para calcular costos según el tipo de vehículo.
 
